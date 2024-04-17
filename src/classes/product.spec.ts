@@ -10,7 +10,7 @@ describe("Messaging", () => {
     jest.clearAllMocks();
   });
 
-  it("should return name and price ", () => {
+  it("should have properties name and price ", () => {
     const sut = createSut("T-Shirt", 44.8);
     expect(sut).toHaveProperty("name", "T-Shirt");
     expect(sut.price).toBeCloseTo(44.8);
