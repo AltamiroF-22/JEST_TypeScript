@@ -33,27 +33,17 @@ const individualCustomer = new IndividualCustomer(
 );
 
 
-//MOCK
-class MessagingMock implements MessagingProps {
-  sendMessage(msg: string): void {
-    console.log("messaging sent by Mock");
-  }
-}
-const messagingMock = new MessagingMock();
-//_______________________________________
-
 const enterpriseCustomer = new EnterpriseCustomer(
   "company name",
   "74.154.317/0001-19"
 );
 
-console.log(individualCustomer.getName());
 
 const messaging = new Messaging();
 const persistency = new Persistency();
 const order = new Order(
   shoppingCart,
-  messagingMock,
+  messaging,
   persistency,
   enterpriseCustomer
 );
@@ -62,9 +52,10 @@ shoppingCart.addProduct(new Products("T-Shirt", 23.44));
 shoppingCart.addProduct(new Products("Pen", 3.44));
 shoppingCart.addProduct(new Products("Laptop", 2333.4433));
 
-console.log(shoppingCart.product);
-console.log(shoppingCart.total());
-console.log(shoppingCart.totalWithDiscount());
+// console.log(individualCustomer.getName());
+// console.log(shoppingCart.product);
+// console.log(shoppingCart.total());
+// console.log(shoppingCart.totalWithDiscount());
 
 order.checkout();
-console.log(order.orderStatus);
+// console.log(order.orderStatus);
